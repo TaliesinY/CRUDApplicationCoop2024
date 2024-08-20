@@ -2,13 +2,10 @@
 
 namespace App\Models;
 
-class Product
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class Product extends Model
 {
-    public static function all(){
-        return;
-    }
-
-    public static function find($id){
-
-    }
+    use HasFactory;
 }
