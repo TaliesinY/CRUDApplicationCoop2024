@@ -4,13 +4,13 @@ use Illuminate\Support\Facades\Route;
 use App\Models\Product;
 
 Route::get('/', function () {
-    return view('home', [
+    return view('products', [
         'heading' => 'Products',
         'products' => Product::all()
     ]);
 });
 
-Route::get('/products/{$id}', function($id) {
+Route::get('/products/{id}', function($id) {
     return view('product', [
         'product' => Product::find($id)
     ]);
