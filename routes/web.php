@@ -2,16 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Models\Product;
+use App\Http\Controllers\ProductController;
 
-Route::get('/', function () {
-    return view('products', [
-        'heading' => 'Products',
-        'products' => Product::all()
-    ]);
-});
+Route::get('/', [ProductController::class, 'index']);
 
-Route::get('/products/{id}', function($id) {
-    return view('product', [
-        'product' => Product::find($id)
-    ]);
-});
+Route::get('/products/{product}', [ProductController::class, 'show']);
