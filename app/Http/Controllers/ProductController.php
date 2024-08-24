@@ -2,15 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Product;
 
 class ProductController extends Controller
 {
     public function index(){
         return view('products', [
-            'heading' => 'Products',
-            'products' => Product::all()
+            'products' => Product::latest()->filter(request(['search']))->get()
         ]);
     }
 
@@ -18,5 +16,9 @@ class ProductController extends Controller
         return view('product', [
             'product' => $product
         ]);
+    }
+
+    public function create(){
+        return view('create');
     }
 }

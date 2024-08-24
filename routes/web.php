@@ -6,4 +6,6 @@ use App\Http\Controllers\ProductController;
 
 Route::get('/', [ProductController::class, 'index']);
 
+Route::get('/products/create', [ProductController::class, 'create']);
+
 Route::get('/products/{product}', [ProductController::class, 'show']);
