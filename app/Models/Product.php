@@ -14,6 +14,7 @@ class Product extends Model
             $query
                 ->where('name', 'like', '%'. request ('search') . "%")
                 ->orWhere('price', 'like', '%'. request ('search') . "%")
+                ->orWhere('provider', 'like', '%'. request ('search') . "%")
                 ->orWhere('description', 'like', '%'. request ('search') . "%");
         }
     }

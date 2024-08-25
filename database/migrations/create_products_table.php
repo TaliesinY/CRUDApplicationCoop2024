@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->integer('price');
             $table->string('provider');
+            $table->string('url');
             $table->longText('description');
             $table->timestamps();
         });

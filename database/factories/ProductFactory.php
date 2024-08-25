@@ -20,6 +20,7 @@ class ProductFactory extends Factory
             'name' => $this->faker->sentence(),
             'price' => $this->faker->numberBetween(1,1000),
             'provider' => $this->faker->company(),
+            'url' => $this->faker->imageUrl(),
             'description' => $this->faker->paragraph()
         ];
     }
