@@ -28,12 +28,12 @@
     </head>
     <body class="mb-48">
         <nav class="flex justify-between items-center mb-4" style="background-color:rgba(36, 36, 36) opacity-90">
-            <a href="/"><h1 style="font-size:3rem">HOME</h1></a>
+            <a href="/"><h1 style="font-size:3rem"><b>HOME</b></h1></a>
             <ul class="flex space-x-6 mr-6 text-lg">
                 <li>
-                    <a href="register.html" class="hover:text-laravel"><i class="fa-solid fa-user-plus"></i> Register</a></li>
+                    <a href="/register" class="hover:text-laravel"><i class="fa-solid fa-user-plus"></i> Register</a></li>
                 <li>
-                    <a href="login.html" class="hover:text-laravel"><i class="fa-solid fa-arrow-right-to-bracket"></i>Login</a>
+                    <a href="/login" class="hover:text-laravel"><i class="fa-solid fa-arrow-right-to-bracket"></i>Login</a>
                 </li>
             </ul>
         </nav>
