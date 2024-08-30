@@ -29,6 +29,39 @@ class ProductController extends Controller
         return view('create');
     }
 
+    public function manage(){
+        return view('manage', [
+            'products' => Product::all()
+        ]);
+    }
+
+    public function edit(Product $product)
+{
+    return view('edit', ['product' => $product]);
+}
+
+public function update(Request $request, Product $product)
+{
+    $formFields = $request->validate([
+        'name' => 'required',
+        'price' => 'required',
+        'provider' => 'required',
+        'url' => 'required',
+        'description' => 'required'
+    ]);
+
+    $product->update($formFields);
+
+    return redirect('/manage');
+}
+
+public function destroy(Product $product)
+{
+    $product->delete();
+
+    return redirect('/manage');
+}
+
     public function store(Request $request){
         $formFields = $request->validate([
             'name' => 'required',

@@ -18,10 +18,16 @@ Route::get('/register', [UserController::class, 'register']);
 
 Route::post('/users', [UserController::class, 'store']);
 
-Route::get('/manage', );
-
 Route::post('/logout', [UserController::class, 'logout']);
 
 Route::get('/login', [UserController::class, 'login']);
 
 Route::post('/authenticate', [UserController::class, 'authenticate']);
+
+Route::get('/manage', [ProductController::class, 'manage'])->middleware('auth');
+
+Route::delete('/products/{product}', [ProductController::class, 'destroy']);
+
+Route::get('/products/{product}/edit', [ProductController::class, 'edit'])->middleware('auth');
+
+Route::put('/products/{product}', [ProductController::class, 'update'])->middleware('auth');
