@@ -13,6 +13,12 @@ class ProductController extends Controller
         ]);
     }
 
+    public function listing(){
+        return view('listing', [
+            'products' => Product::latest()->filter(request(['search']))->get()
+        ]);
+    }
+
     public function show(Product $product){
         return view('product', [
             'product' => $product

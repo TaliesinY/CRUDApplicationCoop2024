@@ -8,7 +8,7 @@ Route::get('/', [ProductController::class, 'index']);
 
 Route::get('/products/create', [ProductController::class, 'create']);
 
-Route::get('/products/list', [ProductController::class, 'list']);
+Route::get('/products/listing', [ProductController::class, 'listing']);
 
 Route::post('/products', [ProductController::class, 'store']);
 
@@ -17,6 +17,8 @@ Route::get('/products/{product}', [ProductController::class, 'show']);
 Route::get('/register', [UserController::class, 'register']);
 
 Route::post('/users', [UserController::class, 'store']);
+
+Route::get('/manage', );
 
 Route::post('/logout', [UserController::class, 'logout']);
 

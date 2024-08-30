@@ -29,7 +29,7 @@
     <body class="mb-48">
         <nav class="flex justify-between items-center mb-4" style="background-color:rgba(36, 36, 36) opacity-90">
             <a href="/"><h1 style="font-size:3rem"><b>ONLINE STORE</b></h1></a>
-            <form action="/" class="flex-grow mx-4">
+            <form action="/products/listing" class="flex-grow mx-4">
                 <div class="relative border-2 border-gray-100 m-4 rounded-lg">
                     <div class="absolute top-4 left-3">
                         <i class="fa fa-search text-gray-400 z-20 hover:text-gray-500"></i>
@@ -47,7 +47,7 @@
                     <span class="font-bold uppercase">Welcome {{auth()->user()->name}}</span>
                 </li>
                 <li>
-                    <a href="/login" class="hover:text-laravel"><i class="fa-solid fa-gear"></i>Manage Listings</a>
+                    <a href="/manage" class="hover:text-laravel"><i class="fa-solid fa-gear"></i>Manage Listings</a>
                 </li>
                 <li>
                     <form class="inline" method="POST" action="/logout">
