@@ -103,7 +103,7 @@ Route::screen('/examples/layouts', ExampleLayoutsScreen::class)->name('platform.
 Route::screen('/examples/grid', ExampleGridScreen::class)->name('platform.example.grid');
 Route::screen('/examples/charts', ExampleChartsScreen::class)->name('platform.example.charts');
 Route::screen('/examples/cards', ExampleCardsScreen::class)->name('platform.example.cards');
-Route::screen('product/edit', ProductEditScreen::class)->name('platform.product.edit');
+Route::screen('product/edit/{product?}', ProductEditScreen::class)->name('platform.product.edit');
 Route::screen('products', ProductScreen::class)->name('platform.products.list');
 Route::screen('product/create', NewProductScreen::class)->name('platform.product.create');
 

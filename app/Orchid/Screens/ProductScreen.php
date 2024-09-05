@@ -3,9 +3,10 @@
 namespace App\Orchid\Screens;
 
 use App\Models\Product;
-use App\Http\Controllers\ProductController;
 use Orchid\Support\Facades\Layout;
+use Illuminate\Http\Request;
 use Orchid\Screen\Screen;
+use Orchid\Screen\Actions\Button;
 use Orchid\Screen\TD;
 use Orchid\Screen\Actions\Link;
 
@@ -72,7 +73,23 @@ class ProductScreen extends Screen
                 TD::make('actions', 'Actions')->render(function (Product $product) {
                     return Link::make()->icon('pencil')->route('platform.product.edit', $product);
                 }),
+
+                TD::make('delete', '')->render(function (Product $product) {
+                    return Button::make('Delete')
+                        ->icon('trash')
+                        ->confirm('Are you sure you want to delete this product?')
+                        ->method('deleteProduct', [
+                            'id' => $product->id,
+                        ]);
+                }),
             ])
         ];
+    }
+
+    public function deleteProduct(Request $request)
+    {
+        Product::findOrFail($request->get('id'))->delete();
+
+        return redirect()->route('platform.products.list');
     }
 }

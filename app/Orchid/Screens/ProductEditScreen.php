@@ -11,8 +11,6 @@ use Illuminate\Http\Request;
 
 class ProductEditScreen extends Screen
 {
-
-    protected $product;
     /**
      * Fetch data to be displayed on the screen.
      *
@@ -21,7 +19,7 @@ class ProductEditScreen extends Screen
     public function query(Product $product): iterable
     {
         return [
-            $this->product => $product
+            'product' => $product,
         ];
     }
 
@@ -43,8 +41,8 @@ class ProductEditScreen extends Screen
     public function commandBar(): iterable
     {
         return [
-            Button::make('Edit Product')
-                ->icon('plus')
+            Button::make('Save Changes')
+                ->icon('check')
                 ->method('editProduct')
         ];
     }
@@ -56,35 +54,28 @@ class ProductEditScreen extends Screen
      */
     public function layout(): array
     {
-        $product = $this->product;
         return [
             Layout::rows([
                 Input::make('product.name')
-                    ->title('Product Name')
-                    ->placeholder($product->name),
+                    ->title('Product Name'),
 
                 Input::make('product.price')
-                    ->title('Product Price')
-                    ->placeholder($product->price),
+                    ->title('Product Price'),
 
                 Input::make('product.provider')
-                    ->title('Product Provider')
-                    ->placeholder($product->provider),
+                    ->title('Product Provider'),
 
                 Input::make('product.description')
-                    ->title('Product Description')
-                    ->placeholder($product->description),
+                    ->title('Product Description'),
 
                 Input::make('product.url')
-                    ->title('Product Image URL')
-                    ->placeholder($product->url)
+                    ->title('Product Image URL'),
             ])
         ];
     }
 
-
-
-    public function Product(Product $product, Request $request){
+    public function editProduct(Product $product, Request $request)
+    {
         $product->fill($request->get('product'))->save();
 
         return redirect()->route('platform.products.list');

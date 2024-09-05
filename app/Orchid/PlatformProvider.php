@@ -44,7 +44,7 @@ class PlatformProvider extends OrchidServiceProvider
                 ->permission('platform.systems.users'),
 
             Menu::make('Back to Store')
-                //->route()
+                ->url('/')
         ];
     }
 
