@@ -11,6 +11,7 @@ use App\Orchid\Screens\Examples\ExampleGridScreen;
 use App\Orchid\Screens\Examples\ExampleLayoutsScreen;
 use App\Orchid\Screens\Examples\ExampleScreen;
 use App\Orchid\Screens\Examples\ExampleTextEditorsScreen;
+use App\Orchid\Screens\NewProductScreen;
 use App\Orchid\Screens\PlatformScreen;
 use App\Orchid\Screens\ProductScreen;
 use App\Orchid\Screens\ProductEditScreen;
@@ -102,7 +103,8 @@ Route::screen('/examples/layouts', ExampleLayoutsScreen::class)->name('platform.
 Route::screen('/examples/grid', ExampleGridScreen::class)->name('platform.example.grid');
 Route::screen('/examples/charts', ExampleChartsScreen::class)->name('platform.example.charts');
 Route::screen('/examples/cards', ExampleCardsScreen::class)->name('platform.example.cards');
-Route::screen('product', ProductEditScreen::class)->name('platform.product.edit');
+Route::screen('product/edit', ProductEditScreen::class)->name('platform.product.edit');
 Route::screen('products', ProductScreen::class)->name('platform.products.list');
+Route::screen('product/create', NewProductScreen::class)->name('platform.product.create');
 
 //Route::screen('idea', Idea::class, 'platform.screens.idea');

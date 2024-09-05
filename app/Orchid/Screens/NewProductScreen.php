@@ -9,20 +9,16 @@ use Orchid\Screen\Fields\Input;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
-class ProductEditScreen extends Screen
+class NewProductScreen extends Screen
 {
-
-    protected $product;
     /**
      * Fetch data to be displayed on the screen.
      *
      * @return array
      */
-    public function query(Product $product): iterable
+    public function query(): iterable
     {
-        return [
-            $this->product => $product
-        ];
+        return [];
     }
 
     /**
@@ -32,7 +28,7 @@ class ProductEditScreen extends Screen
      */
     public function name(): ?string
     {
-        return 'Edit Product';
+        return 'Create Product';
     }
 
     /**
@@ -43,48 +39,40 @@ class ProductEditScreen extends Screen
     public function commandBar(): iterable
     {
         return [
-            Button::make('Edit Product')
+            Button::make('Create Product')
                 ->icon('plus')
-                ->method('editProduct')
+                ->method('createProduct')
         ];
     }
 
     /**
      * The screen's layout elements.
      *
-     * @return Layout[]|string[]
+     * @return \Orchid\Screen\Layout[]|string[]
      */
-    public function layout(): array
+    public function layout(): iterable
     {
-        $product = $this->product;
         return [
             Layout::rows([
                 Input::make('product.name')
-                    ->title('Product Name')
-                    ->placeholder($product->name),
+                    ->title('Product Name'),
 
                 Input::make('product.price')
-                    ->title('Product Price')
-                    ->placeholder($product->price),
+                    ->title('Product Price'),
 
                 Input::make('product.provider')
-                    ->title('Product Provider')
-                    ->placeholder($product->provider),
+                    ->title('Product Provider'),
 
                 Input::make('product.description')
-                    ->title('Product Description')
-                    ->placeholder($product->description),
+                    ->title('Product Description'),
 
                 Input::make('product.url')
                     ->title('Product Image URL')
-                    ->placeholder($product->url)
             ])
         ];
     }
 
-
-
-    public function Product(Product $product, Request $request){
+    public function createProduct(Product $product, Request $request){
         $product->fill($request->get('product'))->save();
 
         return redirect()->route('platform.products.list');

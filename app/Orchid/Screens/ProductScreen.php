@@ -44,7 +44,7 @@ class ProductScreen extends Screen
         return [
             Link::make("Create New")
                 ->icon('plus')
-                ->route('platform.product.edit')
+                ->route('platform.product.create')
             ];
     }
 
@@ -70,7 +70,7 @@ class ProductScreen extends Screen
                     return '<div style="white-space: normal;">' . $product->description . '</div>';
                 }),
                 TD::make('actions', 'Actions')->render(function (Product $product) {
-                    return Link::make()->icon('pencil')->route('platform.product.edit');
+                    return Link::make()->icon('pencil')->route('platform.product.edit', $product);
                 }),
             ])
         ];
