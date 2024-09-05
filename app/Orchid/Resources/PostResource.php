@@ -2,6 +2,7 @@
 
 namespace App\Orchid\Resources;
 
+use App\Models\Product;
 use Orchid\Crud\Resource;
 use Orchid\Screen\TD;
 
@@ -12,7 +13,7 @@ class PostResource extends Resource
      *
      * @var string
      */
-    public static $model = '';
+    public static $model = Product::class;
 
     /**
      * Get the fields displayed by the resource.
